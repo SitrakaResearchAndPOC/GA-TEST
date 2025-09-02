@@ -1,13 +1,11 @@
-name: test
+name: copier_code
 on: push
 jobs:
-  test_machine_runner:
+  test_copier_code:
     runs-on: ubuntu-latest
     steps: 
-      - name: test docker
-        run: docker -v
-      - name: test chemin par defaut
-        run: pwd
-      - name: test affichage
-        run: ls
+      - name: telechargement code
+        uses: actions/checkout@v4
+      - name: capturer readme
+        run: cat README.md
    
