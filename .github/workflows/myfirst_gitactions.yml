@@ -8,4 +8,7 @@ jobs:
         uses: actions/checkout@v4
       - name: capturer readme
         run: cat README.md
+      - name: affichage
+        run: ls
+   
    
