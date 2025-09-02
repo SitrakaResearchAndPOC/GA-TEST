@@ -6,4 +6,6 @@ jobs:
     steps: 
       - name: affichage checkout
         run: docker -v
+      - name: affichage chemin
+        run: pwd
    
