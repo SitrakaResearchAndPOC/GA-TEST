@@ -1,12 +1,9 @@
 name: test
 on: push
 jobs:
-  mon_premier_test:
+  docker_test:
     runs-on: ubuntu-latest
     steps: 
       - name: affichage checkout
-        run: echo "affichage du checkout"
-      - name: installation
-        run: echo "installation node"
-      - name: upload code source
-        run: echo "upload code source"
+        run: docker -v
+   
