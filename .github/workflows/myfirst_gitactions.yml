@@ -19,7 +19,7 @@ jobs:
   tache2_lister:
     runs-on: ubuntu-latest
     steps: 
-      - name: telechargement code
+      - name: affichage
         run: ls      
         
    
