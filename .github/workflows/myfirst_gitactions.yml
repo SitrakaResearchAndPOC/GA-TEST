@@ -1,4 +1,4 @@
-name: copier_code
+name: copier_code ...
 on: push
 jobs:
   test_copier_code:
