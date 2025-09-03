@@ -1,7 +1,7 @@
 name: Multiple tache
 on: push
 jobs:
-  tache1_cowsay:
+  build_cowsay:
     runs-on: ubuntu-latest
     steps: 
       - name: telechargement code
@@ -10,17 +10,36 @@ jobs:
         run: sudo apt-get install cowsay -y
       - name: executer cowsay
         run: cowsay -f dragon "bonjour DRAGON " > dragon.txt
+      - name: upload artifact
+        uses: actions/upload-artifact@v4.6.2
+        with: 
+          name: dragon-artifact
+          path: dragon.txt
+        
+  test_cowsay:
+    runs-on: ubuntu-latest
+    needs: build_cowsay
+    steps: 
+      - name: download artifact
+        uses: actions/download-artifact@v5.0.0
+        with: 
+          name: dragon-artifact
+      - name: existance du artificat
+        run: ls
       - name: executer cowsay
         run: grep -i "dragon" dragon.txt
-      - name: lister les fichier
-        run: ls -ltra
-      - name: capture le fichier dragon.txt
-        run: cat dragon.txt
-  tache2_lister:
+ 
+  run_cowsay:
+    needs: test_cowsay
     runs-on: ubuntu-latest
-    needs: tache1_cowsay
     steps: 
-      - name: affichage
-        run: ls      
+      - name: download artifact
+        uses: actions/download-artifact@v5.0.0
+        with: 
+          name: dragon-artifact
+      - name: existance du artificat
+        run: ls     
+      - name: lancemend du fichier dragon.txt
+        run: cat dragon.txt
         
    
