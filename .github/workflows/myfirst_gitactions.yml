@@ -14,6 +14,8 @@ jobs:
         run: grep -i "dragon" dragon.txt
       - name: lister les fichier
         run: ls -ltra
+      - name: capture le fichier dragon.txt
+        run: cat dragon.txt
         
         
    
