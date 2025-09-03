@@ -1,14 +1,19 @@
-name: copier_code ...
+name: application cowsay
 on: push
 jobs:
-  test_copier_code:
+  etape_cowsay:
     runs-on: ubuntu-latest
     steps: 
       - name: telechargement code
         uses: actions/checkout@v4
-      - name: capturer readme et afficher dossier
-        run: |
-          cat README.md 
-          ls
-   
+      - name: installation de cowsay
+        run: sudo apt-get install cowsay -y
+      - name: executer cowsay
+        run: cowsay -f dragon "bonjour DRAGON " > dragon.txt
+      - name: executer cowsay
+        run: grep -i "dragon" dragon.txt
+      - name: lister les fichier
+        run: ls -ltra
+        
+        
    
