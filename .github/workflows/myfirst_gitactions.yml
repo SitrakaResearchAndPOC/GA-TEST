@@ -1,7 +1,7 @@
-name: application cowsay
+name: Multiple tache
 on: push
 jobs:
-  etape_cowsay:
+  tache1_cowsay:
     runs-on: ubuntu-latest
     steps: 
       - name: telechargement code
@@ -16,6 +16,10 @@ jobs:
         run: ls -ltra
       - name: capture le fichier dragon.txt
         run: cat dragon.txt
-        
+  tache2_lister:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: telechargement code
+        run: ls      
         
    
